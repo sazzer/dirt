@@ -1,0 +1,36 @@
+{
+  "name": "dirt",
+  "version": "1.0.0",
+  "description": "Modern MUD Client, built upon Electron",
+  "scripts": {
+    "install": "grunt build",
+    "start": "grunt start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sazzer/dirt.git"
+  },
+  "author": "Graham Cox <graham@grahamcox.co.uk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sazzer/dirt/issues"
+  },
+  "homepage": "https://github.com/sazzer/dirt#readme",
+  "devDependencies": {
+    "babel-eslint": "^5.0.0",
+    "babel-preset-es2015-node5": "^1.1.2",
+    "electron-prebuilt": "^0.36.9",
+    "grunt": "^0.4.5",
+    "grunt-babel": "^6.0.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-eslint": "^18.0.0",
+    "grunt-execute": "^0.2.2",
+    "grunt-jscpd": "0.0.11",
+    "grunt-run": "^0.5.2",
+    "jit-grunt": "^0.10.0",
+    "time-grunt": "^1.3.0"
+  }
+}
