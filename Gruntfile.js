@@ -26,6 +26,11 @@ module.exports = function(grunt) {
                     cwd: 'src/layouts',
                     src: ['**/*'],
                     dest: 'target/dirt'
+                }, {
+                    expand: true,
+                    cwd: '.',
+                    src: ['package.json'],
+                    dest: 'target/dirt'
                 }]
             }
         },
@@ -54,11 +59,26 @@ module.exports = function(grunt) {
                 options: {
                     wait: false
                 }
+            },
+            package: {
+                cmd: './node_modules/.bin/electron-packager',
+                args: [
+                    'target/dirt/',
+                    'Dirt',
+                    '--all',
+                    '--out',
+                    'target/build/',
+                    '--overwrite'
+                ],
+                options: {
+                    wait: true
+                }
             }
         }
     });
 
     grunt.registerTask('build', ['eslint:main', 'jscpd:main', 'babel:main', 'copy:main']);
     grunt.registerTask('start', ['build', 'run:main']);
+    grunt.registerTask('package', ['build', 'run:package']);
 };
 

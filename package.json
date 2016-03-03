@@ -20,6 +20,7 @@
   "devDependencies": {
     "babel-eslint": "^5.0.0",
     "babel-preset-es2015-node5": "^1.1.2",
+    "electron-packager": "^5.2.1",
     "electron-prebuilt": "^0.36.9",
     "grunt": "^0.4.5",
     "grunt-babel": "^6.0.0",
