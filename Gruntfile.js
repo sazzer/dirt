@@ -60,6 +60,17 @@ module.exports = function(grunt) {
                     wait: false
                 }
             },
+            package_install: {
+                cmd: 'npm',
+                args: [
+                    'install',
+                    '--production'
+                ],
+                options: {
+                    cwd: 'target/dirt',
+                    wait: true
+                }
+            },
             package: {
                 cmd: './node_modules/.bin/electron-packager',
                 args: [
@@ -79,6 +90,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', ['eslint:main', 'jscpd:main', 'babel:main', 'copy:main']);
     grunt.registerTask('start', ['build', 'run:main']);
-    grunt.registerTask('package', ['build', 'run:package']);
+    grunt.registerTask('package', ['build', 'run:package_install', 'run:package']);
 };
 
