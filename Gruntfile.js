@@ -92,4 +92,3 @@ module.exports = function(grunt) {
     grunt.registerTask('start', ['build', 'run:main']);
     grunt.registerTask('package', ['build', 'run:package_install', 'run:package']);
 };
-
