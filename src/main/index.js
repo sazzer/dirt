@@ -7,6 +7,12 @@ function createWindow() {
     });
     mainWindow.loadURL(`file://${__dirname}/index.html`);
     mainWindow.webContents.openDevTools();
+
+    let count = 0;
+    setInterval(() => {
+        mainWindow.webContents.send('ping', 'pong: ' + count);
+        ++count
+    }, 1000);
 }
 
 app.on('ready', createWindow);
