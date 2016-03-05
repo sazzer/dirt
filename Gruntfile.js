@@ -8,7 +8,7 @@ module.exports = function(grunt) {
             options: {
                 sourceMap: true,
                 presets: ['es2015-node5']
-            }, 
+            },
             main: {
                 files: [{
                     expand: true,
@@ -16,6 +16,23 @@ module.exports = function(grunt) {
                     src: ['**/*.js'],
                     dest: 'target/dirt'
                 }]
+            },
+            ui: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/ui',
+                    src: [
+                        '**/*.js',
+                        '**/*.jsx'
+                    ],
+                    dest: 'target/dirt/ui',
+                    ext: '.js'
+                }],
+                options: {
+                    plugins: [
+                        'transform-react-jsx'
+                    ]
+                }
             }
         },
         clean: ['target'],
@@ -25,7 +42,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src/layouts',
                     src: ['**/*'],
-                    dest: 'target/dirt'
+                    dest: 'target/dirt/ui'
                 }, {
                     expand: true,
                     cwd: '.',
@@ -37,17 +54,29 @@ module.exports = function(grunt) {
         eslint: {
             options: {
                 configFile: 'eslintrc'
-            }, 
+            },
             main: {
                 files: [{
                     expand: true,
                     src: ['src/main/**/*.js']
+                }]
+            },
+            ui: {
+                files: [{
+                    expand: true,
+                    src: [
+                        'src/ui/**/*.js',
+                        'src/ui/**/*.jsx'
+                    ]
                 }]
             }
         },
         jscpd: {
             main: {
                 path: 'src/main'
+            },
+            ui: {
+                path: 'src/ui'
             }
         },
         run: {
@@ -88,7 +117,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('build', ['eslint:main', 'jscpd:main', 'babel:main', 'copy:main']);
+    grunt.registerTask('build', ['eslint', 'jscpd', 'babel', 'copy']);
     grunt.registerTask('start', ['build', 'run:main']);
     grunt.registerTask('package', ['build', 'run:package_install', 'run:package']);
 };
