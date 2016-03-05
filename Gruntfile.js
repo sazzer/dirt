@@ -114,10 +114,20 @@ module.exports = function(grunt) {
                     wait: true
                 }
             }
+        },
+        sass: {
+            options: {
+                style: 'expanded'
+            },
+            ui: {
+                files: {
+                    'target/dirt/ui/css/dirt.css': 'src/scss/dirt.scss'
+                }
+            }
         }
     });
 
-    grunt.registerTask('build', ['eslint', 'jscpd', 'babel', 'copy']);
+    grunt.registerTask('build', ['eslint', 'jscpd', 'babel', 'sass', 'copy']);
     grunt.registerTask('start', ['build', 'run:main']);
     grunt.registerTask('package', ['build', 'run:package_install', 'run:package']);
 };

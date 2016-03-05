@@ -29,6 +29,7 @@
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-eslint": "^18.0.0",
     "grunt-execute": "^0.2.2",
     "grunt-jscpd": "0.0.11",
