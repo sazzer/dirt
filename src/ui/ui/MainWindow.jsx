@@ -1,5 +1,5 @@
 import React from 'react';
-import ipc from 'ipc';
+import {ipcRenderer} from 'electron';
 
 export const MainWindow = React.createClass({
     getInitialState: function() {
@@ -8,7 +8,7 @@ export const MainWindow = React.createClass({
         };
     },
     componentDidMount: function() {
-        ipc.on('ping', (message) => {
+        ipcRenderer.on('ping', (event, message) => {
             this.setState({message});
         });
     },
